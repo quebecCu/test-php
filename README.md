@@ -21,7 +21,9 @@ Développer un application web PHP qui distribue un montant total X de manière 
 ```
 // Exemple 1 
 
-$baseline=100; // un baseline de 100 indique que le total de 100 doit être distribué équitablement sur chaque date, donc une valeur de 20 pour chaque jour
+// un baseline de 100 indique que le total de 100 doit être distribué équitablement sur chaque date
+// donc une valeur de 20 pour chaque jour
+$baseline=100; 
 $total=100;
 $start_date='2022-01-03';
 $end_date='2022-01-07';
