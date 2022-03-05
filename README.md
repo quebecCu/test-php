@@ -1,10 +1,10 @@
 # Objectif 
 
-Développer un application web PHP qui distribue un montant total X de manière aléatoire chaque jour entre 2 dates, excluant les jours de la fin de semaine. L'application doit accepter un paramètre qui définie le pourcentage de distribution (baseline) sur chaque jour de la semaine. Le programme doit retourner un tableau dont les clés sont les dates et les valeurs est le montant aléatoire distribué pour chaque date.  
+Développer un application web PHP qui distribue un montant total X de manière aléatoire chaque jour entre 2 dates, excluant les jours de la fin de semaine. L'application doit accepter un paramètre qui définie le pourcentage de distribution (**baseline**) sur chaque jour de la semaine. Le programme doit retourner un tableau dont les clés sont les dates et les valeurs est le montant aléatoire distribué pour chaque date.  
   
 # Paramètres de l'application
 - **Total**: Montant à distribuer
-- **Baseline**: Pourcentage de distribution: un pourcentage de 100% signifie que le montant total sera distribué équitablement sur chaque jour de la semaine. Un pourcentage de 20% signifie qu'une différence de 80% est acceptable entre la distribution de 2 dates.
+- **Baseline**: Paramètre qui contrôle la "randomness" de la distribution du montant total pour chaque date. C'est un nombre entre 0 et 100. Un nombre de 0 signifie que le montant total peut être distribué aléatoirement entre chaque date. Donc une date peut avoir une valeur de 0, et une autre date une valeur de 100. Si le baseline est de 100, le total devrait être distribué équitablement sur chaque date.
 - **Date début**
 - **Date de fin**
 
@@ -14,24 +14,54 @@ Développer un application web PHP qui distribue un montant total X de manière 
 - Le code frontend est à la discrétion du développeur, point bonus si l'application est adapté pour mobile également
 
 # Livrable
-- Le développeur doit envoyer un lien pour que l'évaluateur puisse tester l'application
-- Le développeur doit également envoyer un fichier .zip concernant le code source
+- Le développeur doit envoyer un fichier .zip concernant le code source
+- *Bonus*: un lien pour que l'évaluateur puisse tester l'application directement sur internet
 
 # Exemples
 ```
-$baseline=100;
+$baseline=100; // un baseline de 100 indique que le total de 100 doit être distribué équitablement sur chaque date, donc une valeur de 20 pour chaque jour
 $total=100;
-$start_date='2021-01-03';
-$end_date='2021-01-27';
+$start_date='2022-01-03';
+$end_date='2022-01-07';
 
+// Résultat
 array(
-  'YYYY-mm-dd' => 0.00,
-  'YYYY-mm-dd' => 0.00,
-  'YYYY-mm-dd' => 0.00,
-  'YYYY-mm-dd' => 0.00,
-  'YYYY-mm-dd' => 0.00,
+  '2022-01-03' => 20.00,
+  '2022-01-04' => 20.00,
+  '2022-01-05' => 20.00,
+  '2022-01-06' => 20.00,
+  '2022-01-07' => 20.00,
 );
 ```
+```
+$baseline=20;
+$total=100;
+$start_date='2021-01-03';
+$end_date='2021-01-07';
 
-Objective: Distribute a total amount randomly (within certain parameters) in a range of dates, excluding weekends. There should be a baseline that will define the minimum amount of the value assigned to a specific date. The returned result should be a unidimensional array with the following structure: Array( [YYYY-mm-dd]=>0.00, // The value should be a float value (with two decimal places) corresponding to the date used as key [YYYY-mm-dd]=>0.00, [YYYY-mm-dd]=>0.00, ... )
+// Résultat
+array(
+  '2022-01-03' => 12.00,
+  '2022-01-04' => 4.22,
+  '2022-01-05' => 34.53,
+  '2022-01-06' => 19.47,
+  '2022-01-07' => 29.78,
+);
+```
+```
+$baseline=20;
+$total=100;
+$start_date='2021-01-03';
+$end_date='2021-01-07';
 
+// Résultat
+array(
+  '2022-01-02' => 0, // dimanche
+  '2022-01-03' => 10.54,
+  '2022-01-04' => 7.10,
+  '2022-01-05' => 20.00,
+  '2022-01-06' => 37.40,
+  '2022-01-07' => 24.96,
+  '2022-01-08' => 0, // samedi
+);
+```
