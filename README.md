@@ -57,8 +57,8 @@ array(
 
 $baseline=20;
 $total=100;
-$start_date='2021-01-03';
-$end_date='2021-01-07';
+$start_date='2021-01-02';
+$end_date='2021-01-08';
 
 // Résultat
 array(
