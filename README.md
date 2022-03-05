@@ -4,7 +4,7 @@ Développer un application web PHP qui distribue un montant total X de manière 
   
 # Paramètres de l'application
 - **Total**: Montant à distribuer
-- **Baseline**: Paramètre qui contrôle la "randomness" de la distribution du montant total pour chaque date. C'est un nombre entre 0 et 100. Un nombre de 0 signifie que le montant total peut être distribué aléatoirement entre chaque date. Donc une date peut avoir une valeur de 0, et une autre date une valeur de 100. Si le baseline est de 100, le total devrait être distribué équitablement sur chaque date.
+- **Baseline**: Paramètre qui contrôle la "randomness" de la distribution du montant total pour chaque date. C'est un nombre entre 0 et 100. Un nombre de 0 signifie que le montant total peut être distribué *très* aléatoirement entre chaque date. Donc une date peut avoir une valeur de 0, et une autre date une valeur de 100. Si le baseline est de 100, le total devrait être distribué *équitablement* sur chaque date.
 - **Date début**
 - **Date de fin**
 
