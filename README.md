@@ -19,6 +19,8 @@ Développer un application web PHP qui distribue un montant total X de manière 
 
 # Exemples
 ```
+// Exemple 1 
+
 $baseline=100; // un baseline de 100 indique que le total de 100 doit être distribué équitablement sur chaque date, donc une valeur de 20 pour chaque jour
 $total=100;
 $start_date='2022-01-03';
@@ -34,6 +36,8 @@ array(
 );
 ```
 ```
+// Exemple 2
+
 $baseline=20;
 $total=100;
 $start_date='2021-01-03';
@@ -49,6 +53,8 @@ array(
 );
 ```
 ```
+// Exemple 3 
+
 $baseline=20;
 $total=100;
 $start_date='2021-01-03';
